@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace S3_Server_Log_Webpage_Requests
 {
@@ -23,8 +19,7 @@ namespace S3_Server_Log_Webpage_Requests
                     string line = readIt.ReadLine(); // READ THE FIRST LINE OF THE TEXT FILE
                     if (line.Contains("GET")) // LOOK FOR YOUR KEYWORD
                     {
-                        File.Copy(file, destinDir + Path.GetFileName(file)); // IF THE WORD 
-                        //"DOESN'T APPEAR COPY THE FILE TO THE DISTINATION FOLDER (DIRECTORY)
+                        File.Copy(file, destinDir + Path.GetFileName(file)); // IF THE WORD "GET" APPEARS COPY THE FILE TO THE DISTINATION FOLDER (DIRECTORY)
                         string holdName = sourceDir + Path.GetFileName(file); // HOLD THE COPIED FILE NAME
                         readIt.Close(); // CLOSE THE readIt.ReadLine();
                         File.Delete(holdName); // DELETE THE FILE
@@ -39,6 +34,5 @@ namespace S3_Server_Log_Webpage_Requests
 
             Environment.Exit(0); // CLOSE THE FORM AFTER EXECUTION OF THE CODE
         } // End foreach
-    }
     }
 }
